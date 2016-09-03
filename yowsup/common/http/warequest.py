@@ -8,7 +8,7 @@ if sys.version_info < (3, 0):
     from urllib import urlencode
 
     if sys.version_info >= (2, 7, 9):
-        #see https://github.com/tgalal/yowsup/issues/677
+        # see https://github.com/tgalal/yowsup/issues/677
         import ssl
         ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -51,7 +51,6 @@ class WARequest(object):
         for i in range(0, len(self.params)):
             if self.params[i][0] == name:
                 del self.params[i]
-
 
     def addHeaderField(self, name, value):
         self.headers[name] = value

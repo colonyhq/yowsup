@@ -1,6 +1,7 @@
 from yowsup.common.http.warequest import WARequest
 from yowsup.common.http.waresponseparser import JSONResponseParser
 from yowsup.common.tools import StorageTools, WATools
+from yowsup.env.env_android import AndroidYowsupEnv
 from yowsup.registration.existsrequest import WAExistsRequest
 from yowsup.env import YowsupEnv
 import random, hashlib, os
@@ -52,6 +53,8 @@ class WACodeRequest(WARequest):
             request = WAExistsRequest(self.cc, self.p_in, self.__id)
             result = request.send()
             if result["status"] == "ok":
+                return result
+            elif result["status"] == "fail" and "reason" in result and result["reason"] == "blocked":
                 return result
 
         self.__id = WATools.generateIdentity()
