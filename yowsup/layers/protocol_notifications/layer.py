@@ -34,6 +34,9 @@ class YowNotificationsProtocolLayer(YowProtocolLayer):
             pass
         elif node["type"] == "contacts":
             pass
+        elif node["type"] == "mediaretry":
+            # Not implemented
+            pass
         elif node["type"] == "web":
             # Not implemented
             pass
